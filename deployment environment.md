@@ -65,8 +65,11 @@ subjects:
 - namespace: webapps 
   kind: ServiceAccount
   name: jenkins
+```
 
-Next step we need to create a secret for the token : 
+4. Next step we need to create a secret for the token : 
+```
+
 apiVersion: v1
 kind: Secret
 type: kubernetes.io/service-account-token

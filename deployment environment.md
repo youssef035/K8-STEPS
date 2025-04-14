@@ -6,7 +6,7 @@ Note That All the following are the content of YAML files to be created then to 
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: jenkins => or name of service account u wanna give 
+  name: jenkins 
   namespace: webapps
 ```
 2. Second we need to create a role :

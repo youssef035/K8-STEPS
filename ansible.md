@@ -10,14 +10,18 @@ nano ~/inventory.ini
 ```
 3. example of the content of the inventory
 ```
-172.232.57.48 ansible_user=root
+172.232.50.22 ansible_user=root
+
+[master]
+172.232.50.22 ansible_user=root
 
 [workers]
-172.232.36.105 ansible_user=root
+172.232.162.75 ansible_user=root
 
 [k8s_cluster:children]
 master
 workers
+
 
 ```
 4. we list all the ip adresses :

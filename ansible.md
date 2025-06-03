@@ -44,7 +44,6 @@ nano ~/k8s-setup.yml
 7. example of the content of the playbook to setup a k8 cluster
 
 ```
-root@localhost:~# cat  ~/k8s-setup.yml
 ---
 - name: Set up Kubernetes cluster
   hosts: k8s_cluster

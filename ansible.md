@@ -115,7 +115,44 @@ nano ~/k8s-setup.yml
 ansible-playbook -i ~/inventory.ini ~/k8s-setup.yml -k
 ```
 
+9. new setup
 
+```
+---
+- name: Basic server setup
+  hosts: all
+  become: yes
+  tasks:
+
+    - name: Update all packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install useful packages
+      apt:
+        name:
+          - htop
+          - curl
+          - git
+        state: present
+
+    - name: Set timezone to UTC
+      timezone:
+        name: UTC
+
+    - name: Create a new user 'devops'
+      user:
+        name: devops
+        groups: sudo
+        shell: /bin/bash
+        create_home: yes
+        state: present
+
+    - name: Set password for 'devops'
+      ansible.builtin.shell: echo 'devops:password123' | chpasswd
+
+```
    
 
 

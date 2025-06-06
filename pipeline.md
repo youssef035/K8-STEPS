@@ -50,7 +50,7 @@ pipeline {
         
         stage('build docker image'){
             steps {
-                sh 'docker build -t youssef035/mavenApp:latest'
+                sh 'docker build -t youssef035/mavenapp:latest .'
             }
         }
         

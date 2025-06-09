@@ -47,6 +47,21 @@ pipeline {
               sh  'mvn package'
             }
         }
+
+        stage('Owasp Dependency Check'){
+            steps {
+                dependencyCheck additionalArguments: '--scan target/', odcInstallation: 'owasp'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+            }
+        }
+        
+        stage('Push to Nexus Repository'){
+            steps{
+                configFileProvider([configFile(fileId: 'b12b8d19-565e-46e8-98b0-d87f2cfc08ac', variable: 'mavensettings')]) {
+                    sh"mvn -s $mavensettings clean deploy -DskipTests=true"
+                }
+            }
+        }
         
         stage('build docker image'){
             steps {

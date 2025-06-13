@@ -1,4 +1,4 @@
-content of prometheus.yml: 
+content of alert_rules.yml: 
 ```
 groups:
   - name: alert_rules # Name of the alert rules group

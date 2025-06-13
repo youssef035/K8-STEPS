@@ -76,3 +76,9 @@ groups:
           description: "File system has < 10% free space\nVALUE = {{ $value }}\nLABELS: {{ $labels }}"
 
 ```
+
+start of alert manager : 
+ ```
+./alertmanager --cluster.advertise-address=127.0.0.1:9094 &
+
+```
